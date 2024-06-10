@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<style>
+#mySquare {
+  width: 80px;
+  height: 20px;
+  position: absolute;
+  background-color: green;
+}
+
+#myContainer {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: blue;
+}
+
+</style>
+<body>
+
+<p>
+<button onclick="myMove()">tap for animation</button> 
+</p>
+
+<div id ="myContainer">
+<div id ="mySquare"></div>
+</div>
+
+<script>
+var id = null;
+function myMove() {
+  var elem = document.getElementById("mySquare");   
+  var pos = 50;
+  clearInterval(id);
+  id = setInterval(frame, 10);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(id);
+    } else {
+      pos++; 
+      elem.style.top = pos + 'px'; 
+      elem.style.left = pos + 'px'; 
+    }
+  }
+}
+</script>
+
+</body>
+</html>
